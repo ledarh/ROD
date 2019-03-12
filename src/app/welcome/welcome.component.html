@@ -10,36 +10,32 @@
     </StackLayout>
 
     <StackLayout class="form" [visibility]="formtoggler">
-        <Image class="logo" src="~/app/images/logorod.png"></Image>
-        <Label class="header" text="Recovery on Demand"></Label>
+
 
         <GridLayout columns="2*,*" rows="auto" width="100%" height="auto" >
             <StackLayout col="0" row="1" class="input-field">
-                <TextField #name class="input" hint="First Name" autocorrect="true" autocapitalizationType="words"></TextField>
+                <TextField #name [(ngModel)]="input.name" class="input" hint="First Name" autocorrect="true" autocapitalizationType="words"></TextField>
                 <StackLayout class="hr-light"></StackLayout>
             </StackLayout>
 
             <StackLayout col="1" row="1" class="input-field">
-                <TextField #linitial class="input" hint="Last Initial" returnKeyType="done" autocapitalizationType="allCharacters"></TextField>
+                <TextField #linitial [(ngModel)]="input.linitial" class="input" hint="Last Initial" returnKeyType="done" autocapitalizationType="allCharacters"></TextField>
                 <StackLayout class="hr-light"></StackLayout>
             </StackLayout>
         </GridLayout>
         <StackLayout class="input-field">
-                <ListPicker #fellowship class="input" [items]="fellowshipOptions" selectedIndex="0"></ListPicker>
+                <ListPicker #fellowship [(ngModel)]="input.fellowship" class="input" [items]="fellowshipOptions" selectedIndex="0"></ListPicker>
                 <StackLayout class="hr-light"></StackLayout>
         </StackLayout>
         <StackLayout class="input-field">
-                <DatePicker #soberDate class="input" (loaded)="onDatePickerLoaded($event)" verticalAlignment="center"></DatePicker>
+                <Label [text]="month"><Label text="-"></Label></Label><Label [text]="day"><Label text="-"></Label></Label><Label [text]="year"></Label>
+                <Button text="Pick a Date" (tap)="selectDate()" style="margin-top: 100;" class="btn btn-primary"></Button>
+                <!---<DatePicker #soberDate class="input" (loaded)="onDatePickerLoaded($event)" [(ngModel)]="input.soberDate" verticalAlignment="center"></DatePicker> -->
                 <StackLayout class="hr-light"></StackLayout>
         </StackLayout>
 
         <Button text="Lets Go!" (tap)="submit()"></Button>
+        <Button row="1" text="Logout" (tap)="onLogout()"></Button>
     </StackLayout>
           
 </FlexboxLayout>
-
-
-<GridLayout rows="auto, auto">
-    <Button text="Go To Tabs Page" [nsRouterLink]="['/tabs/default']"></Button>
-    <Button row="1" text="Logout" (tap)="onLogout()"></Button>
-</GridLayout>

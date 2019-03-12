@@ -12,6 +12,7 @@ import { registerElement } from 'nativescript-angular/element-registry';
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { WelcomeComponent } from "./welcome/welcome.component";
 import { NativeScriptHttpModule } from "nativescript-angular/http";
+import { ModalDatetimepicker, PickerOptions } from 'nativescript-modal-datetimepicker';
 import 'rxjs/add/operator/map';
 
 
