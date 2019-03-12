@@ -1,0 +1,39 @@
+<ActionBar title="Home" class="action-bar"></ActionBar>
+
+
+<GridLayout columns="*,*" rows="*,*" width="100%" height="100%" >
+    <Label id="circleMid" [text]="soberDaysNum" col="0" row="0"></Label>
+    <Label id="circleTop" text="Days Sober" col="0" row="0"></Label>
+    <Label id="circleBottom" text="222 Days to 60!" col="0" row="0"></Label>
+
+
+    <ui:AnimatedCircle
+    id="circle" col="0" row="0"
+    backgroundColor="transparent"
+    width="150"
+    height="150"
+    animated="true"
+    animateFrom="0"
+    animationDuration="1250"
+    rimColor="#efeff4"
+    barColor="#3D8FF4"
+    fillColor="transparent"
+    clockwise="true"
+    rimWidth="12"
+    progress="81"
+    text=""
+    textSize="5"
+    textColor="Blue"></ui:AnimatedCircle>
+
+
+    <Button col="1" row="0" width="8%" height="8%" text="Logout" backgroundColor="blue" (tap)="onLogout()"></Button>
+    
+    <StackLayout class="m-y-15"></StackLayout>
+
+
+
+    <Label [text]="name" col="1" row="0"></Label>
+    <Label text="Label 3" col="0" row="1"></Label>
+    <Label text="Label 4" col="1" row="1"></Label>
+        <Button col="1" row="1" text="Logout" backgroundColor="red" (tap)="onLogout()" [nsRouterLink]="['/login']"></Button>
+  </GridLayout>
