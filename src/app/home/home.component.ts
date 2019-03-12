@@ -15,6 +15,9 @@ export class HomeComponent implements OnInit {
 
     public name: string = ApplicationSettings.getString("name");
     public isAA: boolean;
+    public lastMeditationCheck: number;
+    public timeNow: number;
+    public MeditationTimeDiff: Number;
     constructor(private http: Http, private route: ActivatedRoute) { }
 
     onLogout() {
@@ -24,8 +27,21 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
 
-        alert(ApplicationSettings.getString("name"));
+        this.checkMeditation();
     }
     soberDaysNum: String = ApplicationSettings.getString("soberDays");
+
+
+    checkMeditation() {
+        this.lastMeditationCheck = ApplicationSettings.getNumber("lastMeditationCheck");
+        this.timeNow = Math.floor((new Date).getTime()/1000)
+        if ((this.timeNow - this.lastMeditationCheck) > 3600 ) {
+            ApplicationSettings.setNumber("lastMeditationCheck", this.timeNow );
+            //update meditation
+            
+        }
+
+    }
+
 
 }
