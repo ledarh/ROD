@@ -33,6 +33,40 @@
 
     <TextView [text]="meditation" col="1" row="0" class="noBorder"></TextView>
     <Label text="Label 3" col="0" row="1"></Label>
+
+    <StackLayout class="p-20" col="0" row="1">
+        <Accordion height="100%" [items]="items" allowMultiple="false" [selectedIndexes]="selectedIndexes">
+    
+            <ng-template let-i="index" let-item="item" acTemplateKey="header">
+                <StackLayout>
+                    <Label backgroundColor="green" [text]="item.headerText"></Label>
+                </StackLayout>
+            </ng-template>
+    
+    
+            <ng-template let-i="index" let-item="item" acTemplateKey="title">
+                <GridLayout backgroundColor="white">
+                    <Label [text]="item.title"></Label>
+                </GridLayout>
+            </ng-template>
+    
+            <ng-template let-i="index" let-item="item" acTemplateKey="content">
+                <StackLayout>
+                    <Image width="300" height="20" decodeWidth="400" decodeHeight="400" [src]="item.image"></Image>
+                    <Label [text]="item.text"></Label>
+                </StackLayout>
+            </ng-template>
+    
+    
+            <ng-template let-i="index" let-item="item" acTemplateKey="footer">
+                <StackLayout>
+                    <Label backgroundColor="yellow" [text]="item.footerText"></Label>
+                </StackLayout>
+            </ng-template>
+        </Accordion>
+    </StackLayout>
+
+
     <Label text="Label 4" col="1" row="1"></Label>
         <Button col="1" row="1" text="Logout" backgroundColor="red" (tap)="onLogout()" [nsRouterLink]="['/login']"></Button>
   </GridLayout>

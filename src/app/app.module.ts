@@ -14,8 +14,8 @@ import { WelcomeComponent } from "./welcome/welcome.component";
 import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { ModalDatetimepicker, PickerOptions } from 'nativescript-modal-datetimepicker';
 import 'rxjs/add/operator/map';
-
-
+import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
+import { AccordionModule } from 'nativescript-accordion/angular';
 registerElement('AnimatedCircle', () => require('nativescript-animated-circle').AnimatedCircle);
 
 
@@ -36,7 +36,9 @@ export class MyErrorHandler implements ErrorHandler {
         NativeScriptModule,
         AppRoutingModule,
         NativeScriptFormsModule,
-        NativeScriptHttpModule
+        NativeScriptHttpModule,
+        NativeScriptUIListViewModule,
+        AccordionModule
     ],
     declarations: [
         AppComponent,
