@@ -154,8 +154,7 @@ export class WelcomeComponent extends Observable implements OnInit {
         ApplicationSettings.setString("soberDate", result.soberDate );
         ApplicationSettings.setString("meetings", result.meetings );
 
-        var date = new Date(ApplicationSettings.getString("soberDate")+"T12:01:04.753Z");
-
+        var date = new Date(ApplicationSettings.getString("soberDate"));
         this.setSoberDays(date);
     }
 

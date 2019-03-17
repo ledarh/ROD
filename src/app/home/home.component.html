@@ -26,13 +26,12 @@
     textColor="Blue"></ui:AnimatedCircle>
 
 
-    <Button col="1" row="0" width="8%" height="8%" text="Logout" backgroundColor="blue" (tap)="onLogout()"></Button>
     
     <StackLayout class="m-y-15"></StackLayout>
 
 
 
-    <Label [text]="name" col="1" row="0"></Label>
+    <TextView [text]="meditation" col="1" row="0" class="noBorder"></TextView>
     <Label text="Label 3" col="0" row="1"></Label>
     <Label text="Label 4" col="1" row="1"></Label>
         <Button col="1" row="1" text="Logout" backgroundColor="red" (tap)="onLogout()" [nsRouterLink]="['/login']"></Button>
