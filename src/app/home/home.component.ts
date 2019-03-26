@@ -6,8 +6,9 @@ import {TextView} from "tns-core-modules/ui/text-view";
 import * as ApplicationSettings from "application-settings";
 import { SnackBar } from "nativescript-snackbar";
 import "rxjs";
+import { EventData } from 'data/observable';
 import { RadListView, ListViewEventData } from "nativescript-ui-listview";
-
+import { View } from 'ui/core/view';
 import { isIOS, isAndroid } from "platform";
 import * as utils from "utils/utils";
 declare var UIView, NSMutableArray, NSIndexPath;
@@ -32,7 +33,7 @@ export class HomeComponent implements OnInit {
     private dataItems: any[];
     private dataItems2: any[];
     public items: any[];
-    public selectedIndexes = [0, 1];
+    public selectedIndexes = [0, 0];
     soberDaysNum: String = ApplicationSettings.getString("soberDays");
 
     constructor(private routerExtension: RouterExtensions, private http: Http, private route: ActivatedRoute) { }
@@ -58,33 +59,77 @@ export class HomeComponent implements OnInit {
 
         this.items = [
             {
-                title: '1',
+                title: 'Monday',
                 expanded: false,
                 footer: '10',
                 headerText: 'First',
-                footerText: '4',
-                image: 'http://placehold.it/120x120&text=First',
+                footerText: '',
+                image: '../tabs/default',
                 items: [{
                     text: 'Drop'
                 }]
             },
             {
-                title: '2',
+                title: 'Tuesday',
                 expanded: false,
                 footer: '20',
                 headerText: 'Second',
-                footerText: '5',
+                footerText: '',
                 image: 'http://placehold.it/120x120&text=Second',
                 items: [{
                     text: 'Drop'
                 }]
             },
             {
-                title: '3',
+                title: 'Wednesday',
                 expanded: false,
                 footer: '30',
                 headerText: 'Third',
-                footerText: '6',
+                footerText: '',
+                image: 'http://placehold.it/120x120&text=Third',
+                items: [{
+                    text: 'Drop'
+                }]
+            },
+            {
+                title: 'Thursday',
+                expanded: false,
+                footer: '30',
+                headerText: 'Third',
+                footerText: '',
+                image: 'http://placehold.it/120x120&text=Third',
+                items: [{
+                    text: 'Drop'
+                }]
+            },
+            {
+                title: 'Friday',
+                expanded: false,
+                footer: '30',
+                headerText: 'Third',
+                footerText: '',
+                image: 'http://placehold.it/120x120&text=Third',
+                items: [{
+                    text: 'Drop'
+                }]
+            },
+            {
+                title: 'Saturday',
+                expanded: false,
+                footer: '30',
+                headerText: 'Third',
+                footerText: '',
+                image: 'http://placehold.it/120x120&text=Third',
+                items: [{
+                    text: 'Drop'
+                }]
+            },
+            {
+                title: 'Sunday',
+                expanded: false,
+                footer: '30',
+                headerText: 'Third',
+                footerText: '',
                 image: 'http://placehold.it/120x120&text=Third',
                 items: [{
                     text: 'Drop'
@@ -99,35 +144,13 @@ export class HomeComponent implements OnInit {
         return item.expanded ? "expanded" : "default";
     }
 
-    onItemTap(event: ListViewEventData) {
-        const listView = event.object,
-            rowIndex = event.index,
-            dataItem = event.view.bindingContext;
-
-        dataItem.expanded = !dataItem.expanded;
-        if (isIOS) {
-            // Uncomment the lines below to avoid default animation
-            // UIView.animateWithDurationAnimations(0, () => {
-                var indexPaths = NSMutableArray.new();
-                indexPaths.addObject(NSIndexPath.indexPathForRowInSection(rowIndex, event.groupIndex));
-                listView.ios.reloadItemsAtIndexPaths(indexPaths);
-            // });
-        }
-        if (isAndroid) {
-            listView.androidListView.getAdapter().notifyItemChanged(rowIndex);
-        }
-    }
-
-
-
-
 
     checkMeditation() {
         this.lastMeditationCheck = ApplicationSettings.getNumber("lastMeditationCheck");
         this.timeNow = Math.floor((new Date).getTime()/1000);
 
             if ((this.timeNow - this.lastMeditationCheck) > 3600 ) {
-                alert("inner");
+                alert("meditation updated");
                 ApplicationSettings.setNumber("lastMeditationCheck", this.timeNow );
                 //update meditation
                 this.updateMeditation();
@@ -164,5 +187,7 @@ export class HomeComponent implements OnInit {
 
     }
 
-
+    meetingTap(select) {
+        console.log(select);
+    }
 }

@@ -39,6 +39,11 @@ export class WelcomeComponent extends Observable implements OnInit {
     public month = "1";
     public year = "2019";
     public soberDateConcat: String;
+
+    public meditation: string;
+    public lastMeditationCheck: number;
+    public timeNow: number;
+    public MeditationTimeDiff: Number;
     constructor(private routerExtension: RouterExtensions, private http: Http, private route: Router ) {
         super();
         for (let fellowship of fellowshipList) {
@@ -158,5 +163,45 @@ export class WelcomeComponent extends Observable implements OnInit {
         this.setSoberDays(date);
     }
 
+    checkMeditation() {
+        this.lastMeditationCheck = ApplicationSettings.getNumber("lastMeditationCheck");
+        this.timeNow = Math.floor((new Date).getTime()/1000);
 
+            if ((this.timeNow - this.lastMeditationCheck) > 3600 ) {
+                alert("meditation updated");
+                ApplicationSettings.setNumber("lastMeditationCheck", this.timeNow );
+                //update meditation
+                this.updateMeditation();
+
+            } else if (!this.lastMeditationCheck) {
+                this.updateMeditation();
+            }
+
+    }
+
+    updateMeditation() {
+
+        this.jwt = ApplicationSettings.getString("jwt");
+
+
+        let headers = new Headers({ "Authorization": "Basic " + this.jwt,
+                                    "email": ApplicationSettings.getString("username") });
+        let options = new RequestOptions({ headers: headers });
+        this.http.get("https://rod.kellyhiggins.co:3001/meditation", options)
+            .map(result => result.json())
+            .subscribe(result => {
+
+                this.meditation = result.dailyMeditation;
+                
+                if (this.meditation != ApplicationSettings.getString("meditation") ) {
+                    ApplicationSettings.setString("meditation", this.meditation);
+                    this.routerExtension.navigate(["../tabs/default"], { clearHistory: true });
+                } else {
+
+                }
+            }, error => {
+                (new SnackBar()).simple(error.json().message)
+            });
+
+    }
 }
