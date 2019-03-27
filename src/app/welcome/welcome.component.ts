@@ -19,7 +19,7 @@ let fellowshipList = ["Select Fellowship","Alcoholics Anonymous", "Narcotics Ano
 @Component({
     moduleId: module.id,
     selector: "welcome-page",
-    templateUrl: "./welcome.component.html",
+    templateUrl: "welcome.component.html",
     styleUrls: ["./welcome-common.css"]
 })
 export class WelcomeComponent extends Observable implements OnInit {

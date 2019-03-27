@@ -1,7 +1,12 @@
-<TabView selectedIndex="1" androidTabsPosition="bottom">
+<TabView selectedIndex="2" androidTabsPosition="bottom">
+
+    <page-router-outlet *tabItem="{title: 'Map'}" name="mapTab" actionBarVisibility="never">
+    </page-router-outlet>
+
     <page-router-outlet *tabItem="{title: 'Alert'}" name="alertTab" actionBarVisibility="never">
     </page-router-outlet>
 
     <page-router-outlet *tabItem="{title: 'Home'}" name="homeTab" actionBarVisibility="never">
     </page-router-outlet>
+
 </TabView>

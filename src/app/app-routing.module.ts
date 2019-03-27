@@ -19,6 +19,10 @@ const routes: Routes = [
         path: "tabs",
         loadChildren: "~/app/tabs/tabs.module#TabsModule"
     },
+    {
+        path: "meetingHandler",
+        loadChildren: "~/app/meeting-handler/meeting-handler.module#MeetingHandlerModule",
+    }
 ];
 
 @NgModule({

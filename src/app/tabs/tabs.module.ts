@@ -22,6 +22,12 @@ import { TabsComponent } from "./tabs.component";
                         outlet: "alertTab",
                         component: NSEmptyOutletComponent,
                         loadChildren: "~/app/alert/alert.module#AlertModule",
+                    },
+                    {
+                        path: "map",
+                        outlet: "mapTab",
+                        component: NSEmptyOutletComponent,
+                        loadChildren: "~/app/map/map.module#MapModule",
                     }
                 ]
             }

@@ -12,12 +12,14 @@ import { registerElement } from 'nativescript-angular/element-registry';
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { WelcomeComponent } from "./welcome/welcome.component";
 import { NativeScriptHttpModule } from "nativescript-angular/http";
-import { ModalDatetimepicker, PickerOptions } from 'nativescript-modal-datetimepicker';
 import 'rxjs/add/operator/map';
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 import { AccordionModule } from 'nativescript-accordion/angular';
 registerElement('AnimatedCircle', () => require('nativescript-animated-circle').AnimatedCircle);
 
+//maps
+import * as platform from "platform";
+declare var GMSServices: any;
 
 traceEnable();
 
@@ -27,6 +29,12 @@ export class MyErrorHandler implements ErrorHandler {
         console.log("### ErrorHandler Stack: " + error.stack);
     }
 }
+
+//maps
+if (platform.isIOS) { 
+    GMSServices.provideAPIKey("AIzaSyBUmB5-8_Uvm3Ai7GIuoEzi9CZzasDbVKY");
+  }
+
 
 @NgModule({
     bootstrap: [

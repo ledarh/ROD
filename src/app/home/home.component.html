@@ -55,5 +55,8 @@
 
 
     <Label text="Label 4" col="1" row="1"></Label>
-        <Button col="1" row="1" text="Logout" backgroundColor="red" (tap)="onLogout()" [nsRouterLink]="['/login']"></Button>
+        <StackLayout class="p-20" col="1" row="1">
+        <Button col="1" row="1" height="50" text="Logout" backgroundColor="red" (tap)="onLogout()" [nsRouterLink]="['/login']"></Button>
+        <Button col="1" row="1" height="50" text="Meeting Handler" backgroundColor="orange" [nsRouterLink]="['/meetingHandler']"></Button>
+        </StackLayout>
   </GridLayout>

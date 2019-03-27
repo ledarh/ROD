@@ -14,6 +14,6 @@ export class TabsComponent {
     }
 
     ngOnInit() {
-        this.routerExtension.navigate([{ outlets: { homeTab: ["home"], alertTab: ["alert"] } }], { relativeTo: this.activeRoute });
+        this.routerExtension.navigate([{ outlets: { homeTab: ["home"], alertTab: ["alert"], mapTab: ["map"] } }], { relativeTo: this.activeRoute });
     }
 }

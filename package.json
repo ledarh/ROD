@@ -7,9 +7,6 @@
     "id": "org.nativescript.rod",
     "tns-ios": {
       "version": "5.0.0"
-    },
-    "tns-android": {
-      "version": "5.2.1"
     }
   },
   "dependencies": {
@@ -26,6 +23,7 @@
     "nativescript-accordion": "6.0.0-beta.2",
     "nativescript-angular": "7.2.2",
     "nativescript-animated-circle": "1.1.0",
+    "nativescript-google-maps-sdk": "2.7.0",
     "nativescript-https": "1.0.3",
     "nativescript-modal-datetimepicker": "1.1.12",
     "nativescript-snackbar": "4.1.1",
