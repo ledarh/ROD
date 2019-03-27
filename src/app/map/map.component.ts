@@ -42,7 +42,7 @@ export class MapComponent implements OnInit {
         var marker = new Marker();
         marker.position = Position.positionFromLatLng(-33.86, 151.20);
         marker.title = "Sydney";
-        marker.snippet = "Australia";
+        marker.snippet = "Tap to favorite";
         marker.userData = {index: 1};
         this.mapView.addMarker(marker);
     }

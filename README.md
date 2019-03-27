@@ -11,3 +11,5 @@ add tab in tabs.module.tsm component.ts, and component.html, default tab in como
 ng generate component [name]
 
 copy -r /node_modules/nativescript-google-maps-sdk/platforms/android/res/values app/App_Resources/Android/src/main/res
+
+https://github.com/dapriett/nativescript-google-maps-sdk/issues/243

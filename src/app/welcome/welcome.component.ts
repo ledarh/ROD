@@ -19,7 +19,7 @@ let fellowshipList = ["Select Fellowship","Alcoholics Anonymous", "Narcotics Ano
 @Component({
     moduleId: module.id,
     selector: "welcome-page",
-    templateUrl: "welcome.component.html",
+    templateUrl: "./welcome.component.html",
     styleUrls: ["./welcome-common.css"]
 })
 export class WelcomeComponent extends Observable implements OnInit {
@@ -77,7 +77,6 @@ export class WelcomeComponent extends Observable implements OnInit {
             .map(result => result.json())
             .subscribe(result => {
                 if (result.firstrun != 1 ) {
-
                     this.writeToAppSettings(result);
                     this.routerExtension.navigate(["../tabs/default"], { clearHistory: true });
                 } else {

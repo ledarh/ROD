@@ -7,6 +7,9 @@
     "id": "org.nativescript.rod",
     "tns-ios": {
       "version": "5.0.0"
+    },
+    "tns-android": {
+      "version": "5.2.1"
     }
   },
   "dependencies": {
