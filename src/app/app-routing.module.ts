@@ -4,7 +4,7 @@ import { Routes } from "@angular/router";
 
 import { LoginComponent } from "./login/login.component";
 import { WelcomeComponent } from "./welcome/welcome.component";
-
+import { BigbookComponent } from './bigbook/bigbook.component';
 export const COMPONENTS = [LoginComponent];
 
 const routes: Routes = [
@@ -22,6 +22,9 @@ const routes: Routes = [
     {
         path: "meetingHandler",
         loadChildren: "~/app/meeting-handler/meeting-handler.module#MeetingHandlerModule",
+    },
+    {
+        path: "bigbook", component: BigbookComponent
     }
 ];
 

@@ -24,6 +24,12 @@ import { TabsComponent } from "./tabs.component";
                         loadChildren: "~/app/alert/alert.module#AlertModule",
                     },
                     {
+                        path: "toolkit",
+                        outlet: "toolkitTab",
+                        component: NSEmptyOutletComponent,
+                        loadChildren: "~/app/toolkit/toolkit.module#ToolkitModule",
+                    },
+                    {
                         path: "map",
                         outlet: "mapTab",
                         component: NSEmptyOutletComponent,

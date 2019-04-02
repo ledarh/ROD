@@ -11,6 +11,7 @@ import { enable as traceEnable, addCategories } from "tns-core-modules/trace";
 import { registerElement } from 'nativescript-angular/element-registry';
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { WelcomeComponent } from "./welcome/welcome.component";
+import { BigbookComponent } from './bigbook/bigbook.component';
 import { NativeScriptHttpModule } from "nativescript-angular/http";
 import 'rxjs/add/operator/map';
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
@@ -19,6 +20,8 @@ registerElement('AnimatedCircle', () => require('nativescript-animated-circle').
 
 //maps
 import * as platform from "platform";
+
+
 declare var GMSServices: any;
 
 traceEnable();
@@ -51,6 +54,7 @@ if (platform.isIOS) {
     declarations: [
         AppComponent,
         WelcomeComponent,
+        BigbookComponent,
         ...COMPONENTS
     ],
     providers: [
