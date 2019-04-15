@@ -8,7 +8,7 @@ import { RouterExtensions } from "nativescript-angular/router";
   moduleId: module.id,
 })
 export class ToolkitComponent implements OnInit {
-  
+  //https://play.nativescript.org/?template=play-ng&id=TIzFdC&v=4
 
   listItem = [];
 
@@ -27,7 +27,8 @@ export class ToolkitComponent implements OnInit {
     console.log("You tapped: " + this.listItem[args.index].text);
 
     if (this.listItem[args.index].id === 1 ) {
-      this.routerExtension.navigate(["./bigbook"], { clearHistory: true });
+      console.log("hit");
+      this.routerExtension.navigate(["./bigbook"], { clearHistory: false });
     }
   }
 

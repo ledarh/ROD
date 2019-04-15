@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService, IDataItem } from "../shared/data.service";
 
 @Component({
   selector: 'ns-bigbook',
@@ -8,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BigbookComponent implements OnInit {
 
-  constructor() { }
+  items: Array<IDataItem>;
+
+  constructor(private _itemService: DataService) { }
 
   ngOnInit() {
+
+    this.items = this._itemService.getItems();
+
   }
 
 }

@@ -13,3 +13,12 @@ ng generate component [name]
 copy -r /node_modules/nativescript-google-maps-sdk/platforms/android/res/values app/App_Resources/Android/src/main/res
 
 https://github.com/dapriett/nativescript-google-maps-sdk/issues/243
+
+https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-tab-navigation-ng/src/app
+
+
+//multiple types of items in listview
+https://play.nativescript.org/?template=play-ng&id=5QGgUF&v=4
+
+//geocode
+https://github.com/JameelMukadam/geocode#readme

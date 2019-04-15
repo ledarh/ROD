@@ -1,5 +1,6 @@
 import { NgModule, NO_ERRORS_SCHEMA, ErrorHandler, NgModuleFactoryLoader } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
+import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { AppRoutingModule, COMPONENTS } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
@@ -11,7 +12,6 @@ import { enable as traceEnable, addCategories } from "tns-core-modules/trace";
 import { registerElement } from 'nativescript-angular/element-registry';
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { WelcomeComponent } from "./welcome/welcome.component";
-import { BigbookComponent } from './bigbook/bigbook.component';
 import { NativeScriptHttpModule } from "nativescript-angular/http";
 import 'rxjs/add/operator/map';
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
@@ -44,6 +44,7 @@ if (platform.isIOS) {
         AppComponent
     ],
     imports: [
+        NativeScriptCommonModule,
         NativeScriptModule,
         AppRoutingModule,
         NativeScriptFormsModule,
@@ -54,7 +55,6 @@ if (platform.isIOS) {
     declarations: [
         AppComponent,
         WelcomeComponent,
-        BigbookComponent,
         ...COMPONENTS
     ],
     providers: [

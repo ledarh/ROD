@@ -1,7 +1,17 @@
 <ActionBar title="Meetings" class="action-bar"></ActionBar>
+<DockLayout width="100%" height="100%">
+        <GridLayout dock="top" columns="*,8*,*" rows="*" width="100%" height="10%" >
+                        <Image dock="left" src="res://icon" col="0" row="0" (Tap)="alertAddress()" backgroundColor="green"></Image>
+                        <Label text="Meeting Map" col="1" row="0" backgroundColor="red"></Label>
+                        <Image dock="right" src="res://icon" col="2" row="0" (Tap)="adjustLayout()" backgroundColor="green"></Image>
 
-<GridLayout>
-        <MapView #mapView [latitude]="latitude" [longitude]="longitude"
+        </GridLayout>
+        <GridLayout dock="top" [visibility]="newMeetingForm" columns="*,4*" rows="*" width="100%" height="8%" >
+                <Label col="0" row="0" text="hello"></Label>
+                <Button col="1" row="0" text="get location" (tap)="buttonGetLocationTap()"></Button>
+        </GridLayout>
+
+        <MapView #mapView dock="bottom" [height]="mapHeight" [latitude]="latitude" [longitude]="longitude"
                  [zoom]="zoom" [minZoom]="minZoom" [maxZoom]="maxZoom" [bearing]="bearing"
                  [tilt]="tilt" i-padding="50,50,50,50" [padding]="padding" (mapReady)="onMapReady($event)"
                  (markerSelect)="onMarkerEvent($event)" (markerBeginDragging)="onMarkerEvent($event)"
@@ -10,4 +20,5 @@
                  (cameraChanged)="onCameraChanged($event)"
                  (cameraMove)="onCameraMove($event)">
         </MapView>
-</GridLayout>
+</DockLayout>
+
